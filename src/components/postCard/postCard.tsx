@@ -31,9 +31,9 @@ const PostCard: FC<Props> = ({
     let outPutString = '';
 
     splitted.forEach((item) => {
-      outPutString += `<span>${item}</span><span class='orange'>${searchValue}</span>`;
+      outPutString += `<span>${item}</span><span class='apricot'>${searchValue}</span>`;
     });
-    const realOutput = outPutString.slice(0, outPutString.length - 29 - searchValue.length);
+    const realOutput = outPutString.slice(0, outPutString.length - 30 - searchValue.length);
     return { __html: realOutput };
   };
 
@@ -41,7 +41,11 @@ const PostCard: FC<Props> = ({
     <div className={style.postCard}>
       <div className="row end-xs">
         <div className="col-xs-12">
-          {user.status === 'admin' && <Button handleClick={deletePostHandler}>Delete Post</Button>}
+          {user.status === 'admin' && (
+            <Button handleClick={deletePostHandler} color="warning" size="small">
+              Delete Post
+            </Button>
+          )}
         </div>
       </div>
       <div className="row">
@@ -58,7 +62,7 @@ const PostCard: FC<Props> = ({
           <Image src={image} alt={title} />
         </div>
         <div className="col-xs-9">
-          <P1>
+          <P1 propsClass="margin-bottom--16">
             {body.substring(0, 200)}
             {'... '}
             <Button type="button" handleClick={handleReadMore} propsClass="ReadMore">
@@ -69,7 +73,7 @@ const PostCard: FC<Props> = ({
           <P2>
             category:{' '}
             {category.map((cat) => (
-              <em key={cat} className={`${chosenCategory === cat && 'category'}`}>
+              <em key={cat} className={`${chosenCategory === cat && 'apricot'}`}>
                 #{cat}{' '}
               </em>
             ))}

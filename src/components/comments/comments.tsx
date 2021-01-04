@@ -35,7 +35,7 @@ const Comments: FC<Props> = ({
               <div className="col-xs-4">
                 <P2>{email}</P2>
                 {user.status === 'admin' && (
-                  <Button handleClick={() => deleteCommentHandler(commentId)}>delete</Button>
+                  <Button handleClick={() => deleteCommentHandler(commentId)} size="small" color="warning">delete</Button>
                 )}
               </div>
               <div className="col-xs-8">

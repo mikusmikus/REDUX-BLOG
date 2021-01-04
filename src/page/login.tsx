@@ -67,9 +67,10 @@ const LoginPage = () => {
                         id="password"
                         required
                         type="password"
+                        propsClass='margin-bottom--32'
                       />
 
-                      <Button type="submit" propsClass="apricotBig">
+                      <Button type="submit" size='large' color='success'>
                         Login
                       </Button>
                     </div>

@@ -43,7 +43,7 @@ const Blog = () => {
   };
 
   const handlePostSearch = (value: string) => {
-    if (value.length > 2) {
+    if (value.length > 1) {
       setChosenCategory('all');
     }
     dispatch(addInputSearchValue(value));
@@ -59,6 +59,13 @@ const Blog = () => {
   const filteredPosts = posts.filter((post) =>
     post.title.toLowerCase().includes(searchValue.toLowerCase())
   );
+
+  const chosenCategoryColor = (category: string): 'success' | 'primary' => {
+    if (category === chosenCategory) {
+      return 'success';
+    }
+    return 'primary';
+  };
 
   if (loading) {
     return (
@@ -81,12 +88,13 @@ const Blog = () => {
           <MainBody>
             <H1>This is Blog Page</H1>
             <div className="row end-xs">
-              <div className="col-xs-12">
+              <div className="col-xs-12 margin-right--16">
                 {user.username && (
                   <Button
                     type="button"
                     handleClick={() => history.push('/newpost')}
-                    propsClass="apricotBig"
+                    size="large"
+                    color="success"
                   >
                     New Post
                   </Button>
@@ -94,7 +102,7 @@ const Blog = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-sm-4 col-xs-8">
+              <div className="col-sm-4 col-xs-8 margin-left--16">
                 <Input
                   type="search"
                   placeholder="Find post by title here..."
@@ -105,12 +113,12 @@ const Blog = () => {
             </div>
 
             <div className="row">
-              <div className="col-xs-12">
+              <div className="col-xs-12 margin-left--16">
                 {categories.map((category) => (
                   <Button
                     type="button"
                     key={category}
-                    propsClass={`${chosenCategory === category && 'category'}`}
+                    color={chosenCategoryColor(category)}
                     handleClick={() => {
                       setChosenCategory(category);
                       dispatch(addInputSearchValue(''));

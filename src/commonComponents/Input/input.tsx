@@ -16,7 +16,7 @@ type Props = {
 const Input: FC<Props> = ({
   value,
   onChangeHandler,
-  placeholder,
+  placeholder = 'placeholder here...',
   id,
   required = false,
   propsClass,

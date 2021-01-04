@@ -94,9 +94,10 @@ const RegisterPage = () => {
                         onChangeHandler={(value) => setPassword2(value)}
                         id="password2"
                         required
+                        propsClass='margin-bottom--32'
                       />
 
-                      <Button type="submit" propsClass="apricotBig">
+                      <Button type="submit" size='large' color='success'>
                         Register
                       </Button>
                     </div>

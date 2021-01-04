@@ -131,10 +131,10 @@ const PostEditor: FC<Props> = ({ SavePostHandler, handleCancel }) => {
               </div>
             </div>
 
-            <Button propsClass="apricotBig" type="submit">
+            <Button size='large' color='success' type="submit">
               Save{' '}
             </Button>
-            <Button propsClass="apricotBig" handleClick={handleCancel}>
+            <Button size='large' color='success' handleClick={handleCancel}>
               Cancel
             </Button>
           </Form>

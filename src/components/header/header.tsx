@@ -84,7 +84,7 @@ export const Header: FC = () => {
                         >
                           logout
                         </NavLink>
-                        <P2 propsClass="noPadding">
+                        <P2 propsClass="padding--0">
                           {user.status}{' '}
                           {user.status === 'user' ? (
                             <FontAwesomeIcon icon={faUser} />

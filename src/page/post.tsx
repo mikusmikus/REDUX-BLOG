@@ -50,8 +50,10 @@ const PostPage = () => {
     setCommentValue('');
   };
   const deletePostHandler = () => {
-    window.confirm('Are you sure want to delete post?') && dispatch(deletePostAction(postId));
-    history.push('/');
+    if (window.confirm('Are you sure want to delete post?')) {
+      dispatch(deletePostAction(postId));
+      history.push('/');
+    }
   };
 
   const deleteCommentHandler = (commentId: string) => {

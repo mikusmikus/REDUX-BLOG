@@ -12,18 +12,17 @@ type Props = {
   post: PostType;
   handlePostEdit: () => void;
   handleToHomePage: () => void;
-  deletePostHandler: () =>void;
+  deletePostHandler: () => void;
 };
 
 const Post: FC<Props> = ({ post, user, handlePostEdit, handleToHomePage, deletePostHandler }) => {
-
   const { title, image, category, body, author, updated } = post;
-  
+
   return (
     <div className={style.post}>
       <div className="row">
         <div className="col-xs-12">
-          <Button propsClass="backButton" handleClick={handleToHomePage}>
+          <Button handleClick={handleToHomePage} color="success">
             Back to Blogs
           </Button>
         </div>
@@ -36,10 +35,16 @@ const Post: FC<Props> = ({ post, user, handlePostEdit, handleToHomePage, deleteP
         <div className="col-xs-6">
           <div className="row end-xs">
             <div className="col-xs-12">
-              {user.status === 'admin' && <Button handleClick={handlePostEdit}>Edit post</Button>}
+              {user.status === 'admin' && (
+                <Button handleClick={handlePostEdit} color="success">
+                  Edit post
+                </Button>
+              )}
             </div>
             <div className="col-xs-12">
-              {user.status === 'admin' && <Button handleClick={deletePostHandler}>Delete post</Button>}
+              {user.status === 'admin' && (
+                <Button handleClick={deletePostHandler} size="small" color="warning">Delete post</Button>
+              )}
             </div>
           </div>
           <P2>
