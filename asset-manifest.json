@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/redux-blog/static/css/main.953ce615.chunk.css",
-    "main.js": "/redux-blog/static/js/main.5ede3d27.chunk.js",
-    "main.js.map": "/redux-blog/static/js/main.5ede3d27.chunk.js.map",
+    "main.css": "/redux-blog/static/css/main.176decc5.chunk.css",
+    "main.js": "/redux-blog/static/js/main.fb37f222.chunk.js",
+    "main.js.map": "/redux-blog/static/js/main.fb37f222.chunk.js.map",
     "runtime-main.js": "/redux-blog/static/js/runtime-main.27dd8eff.js",
     "runtime-main.js.map": "/redux-blog/static/js/runtime-main.27dd8eff.js.map",
     "static/js/2.0ee3ade2.chunk.js": "/redux-blog/static/js/2.0ee3ade2.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.709057e4.chunk.js": "/redux-blog/static/js/3.709057e4.chunk.js",
     "static/js/3.709057e4.chunk.js.map": "/redux-blog/static/js/3.709057e4.chunk.js.map",
     "index.html": "/redux-blog/index.html",
-    "static/css/main.953ce615.chunk.css.map": "/redux-blog/static/css/main.953ce615.chunk.css.map",
+    "static/css/main.176decc5.chunk.css.map": "/redux-blog/static/css/main.176decc5.chunk.css.map",
     "static/js/2.0ee3ade2.chunk.js.LICENSE.txt": "/redux-blog/static/js/2.0ee3ade2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.27dd8eff.js",
     "static/js/2.0ee3ade2.chunk.js",
-    "static/css/main.953ce615.chunk.css",
-    "static/js/main.5ede3d27.chunk.js"
+    "static/css/main.176decc5.chunk.css",
+    "static/js/main.fb37f222.chunk.js"
   ]
 }
