@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import 'flexboxgrid';
+
+$black: #000000;
+$oxfordBlue: #14213d;
+$apricot: #fca311;
+$platinum: #e5e5e5;
+$white: #ffffff;
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.7528408779187149) 0%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(229, 229, 229, 1) 32%,
+    rgba(229, 229, 229, 1) 70%,
+    rgba(255, 255, 255, 1) 100%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+em{
+  font-weight: 500;
+}
+.search {
+  margin-bottom: 0;
+  display: inline;
+  justify-content: flex-end;
+  padding: 10px;
+}
+.ReadMore {
+  font-size: 24px;
+  padding: 0;
+  background-color: $platinum;
+  font-weight: 400;
+  width: auto;
+  font-style: italic;
+}
+.apricotBig {
+  font-size: 32px;
+  padding: 10px 30px;
+  max-width: 200px;
+  width: 100%;
+  background-color: $apricot;
+}
+.category {
+  background-color: $apricot;
+}
+.backButton {
+  margin-bottom: 20px;
+  outline: none;
+}
+.noPadding {
+  padding: 0;
+  text-align: center;
+}
+.icon {
+  max-width: 60%;
+  padding-top: 60%;
+  margin-left: 10px;
+}
+.heading3 {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+  padding-left: 10px;
+  word-break: break-word;
+}
+.orange {
+  background-color: $apricot;
+}

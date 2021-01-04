@@ -1,0 +1,18 @@
+import { users, UserType } from '../../data/users';
+
+import { AllUserActions, SAVE_USER_INFO, LOGOUT_USER } from './types';
+
+const initialState: UserType = {};
+
+export const loginReducer = (state = initialState, action: AllUserActions) => {
+  switch (action.type) {
+    case SAVE_USER_INFO: {
+      return action.user;
+    }
+    case LOGOUT_USER: {
+      return {};
+    }
+    default:
+      return state;
+  }
+};
