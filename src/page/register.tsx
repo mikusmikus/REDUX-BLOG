@@ -4,12 +4,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRegistered } from '@fortawesome/free-solid-svg-icons';
-import Button from '../commonComponents/button/button';
-import Form from '../commonComponents/form/form';
-import Input from '../commonComponents/Input/input';
-import Label from '../commonComponents/label/label';
-import MainBody from '../commonComponents/mainBody/mainBody';
-import { H1 } from '../components/typography/typography';
+import { Button,  Form,  Input, Label,  MainBody } from '../commonComponents';
+import { H1 } from '../components/typography';
 import { UserType } from '../data/users';
 import { addUser } from '../store/user/action';
 

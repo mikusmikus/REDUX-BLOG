@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import MainBody from '../commonComponents/mainBody/mainBody';
-import PostEditor from '../components/postEditor/postEditor';
-import { H1 } from '../components/typography/typography';
+import { MainBody } from '../commonComponents';
+import PostEditor from '../components/postEditor';
+import { H1 } from '../components/typography';
 import { PostType } from '../store/blog/types';
 import { RootState } from '../store/store';
 import { EditPostAction } from '../store/blog/action';

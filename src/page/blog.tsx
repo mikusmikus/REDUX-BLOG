@@ -1,18 +1,15 @@
-/* eslint-disable react/jsx-curly-newline */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { Button, Image, Input, MainBody } from '../commonComponents';
 import { deletePostAction } from '../store/blog/action';
 import { addInputSearchValue } from '../store/search/action';
 import { RootState } from '../store/store';
-import { H1, H3 } from '../components/typography/typography';
-import Button from '../commonComponents/button/button';
-import MainBody from '../commonComponents/mainBody/mainBody';
-import Input from '../commonComponents/Input/input';
-import PostCard from '../components/postCard/postCard';
-import Image from '../commonComponents/image/image';
+import { H1, H3 } from '../components/typography';
+import PostCard from '../components/postCard';
+import { chooseCategoryColor, filterPosts, makeCategoryList, sortPostsCategory } from '../helpers';
 
-export const categories = ['all'];
+
 
 const Blog = () => {
   const [chosenCategory, setChosenCategory] = useState('all');
@@ -25,14 +22,6 @@ const Blog = () => {
     loading: state.loading,
     user: state.user,
   }));
-
-  posts.forEach((post) =>
-    post.category.forEach((category) => {
-      if (!categories.includes(category)) {
-        categories.push(category);
-      }
-    })
-  );
 
   const handleReadMore = (id: string) => {
     history.push(`/blog/${id}`);
@@ -47,24 +36,6 @@ const Blog = () => {
       setChosenCategory('all');
     }
     dispatch(addInputSearchValue(value));
-  };
-
-  const sortPostsCategory = (category: string[], chosenTag: string) => {
-    if (chosenTag === 'all') {
-      return true;
-    }
-    return category.some((eachCategory) => eachCategory === chosenTag);
-  };
-
-  const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchValue.toLowerCase())
-  );
-
-  const chosenCategoryColor = (category: string): 'success' | 'primary' => {
-    if (category === chosenCategory) {
-      return 'success';
-    }
-    return 'primary';
   };
 
   if (loading) {
@@ -114,11 +85,11 @@ const Blog = () => {
 
             <div className="row">
               <div className="col-xs-12 margin-left--16">
-                {categories.map((category) => (
+                {makeCategoryList(posts).map((category) => (
                   <Button
                     type="button"
                     key={category}
-                    color={chosenCategoryColor(category)}
+                    color={chooseCategoryColor(category, chosenCategory)}
                     handleClick={() => {
                       setChosenCategory(category);
                       dispatch(addInputSearchValue(''));
@@ -130,7 +101,7 @@ const Blog = () => {
               </div>
             </div>
             <>
-              {!filteredPosts.length ? (
+              {!filterPosts(posts, searchValue).length ? (
                 <>
                   <H3>Can not find any posts...</H3>
                   <Image
@@ -139,7 +110,7 @@ const Blog = () => {
                   />
                 </>
               ) : (
-                filteredPosts
+                filterPosts(posts, searchValue)
                   .sort((post, postNext) => postNext.updated - post.updated)
                   .map(
                     (post) =>

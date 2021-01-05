@@ -2,14 +2,8 @@
 import React, { FC, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Form from '../../commonComponents/form/form';
-import Image from '../../commonComponents/image/image';
-import Input from '../../commonComponents/Input/input';
-import Textarea from '../../commonComponents/textarea/textarea';
-import Label from '../../commonComponents/label/label';
+import { Button, Datalist, Form, Image, Input, Label, Textarea } from '../../commonComponents';
 import { RootState } from '../../store/store';
-import Button from '../../commonComponents/button/button';
-import Datalist from '../../commonComponents/datalist/datalist';
 
 type Props = {
   SavePostHandler: (

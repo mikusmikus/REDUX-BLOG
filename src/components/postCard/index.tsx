@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import React, { FC } from 'react';
-import { formatTime } from '../../helpers/formatTime';
+import {Button, Image} from '../../commonComponents';
+import { formatTime } from '../../helpers';
 import { PostType } from '../../store/blog/types';
-import { H3, P1, P2 } from '../typography/typography';
-import Button from '../../commonComponents/button/button';
-import style from './postCard.module.scss';
-import Image from '../../commonComponents/image/image';
+import { H3, P1, P2 } from '../typography';
 import { UserType } from '../../data/users';
+import style from './postCard.module.scss';
+
 
 type Props = {
   user: UserType;

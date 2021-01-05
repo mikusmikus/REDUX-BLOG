@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import Button from '../../commonComponents/button/button';
-import { H2, H3, P2 } from '../typography/typography';
+import {Button, Textarea} from '../../commonComponents';
+import { H2, H3, P2 } from '../typography';
 import { PostType } from '../../store/blog/types';
-import style from './comments.module.scss';
-import Textarea from '../../commonComponents/textarea/textarea';
 import { UserType } from '../../data/users';
+import style from './comments.module.scss';
+
 
 type Props = {
   post: PostType;

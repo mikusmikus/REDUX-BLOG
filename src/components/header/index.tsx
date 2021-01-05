@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
+import capitalize  from 'lodash/capitalize';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUserSecret, faDog, faUserCog } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
-import capitalize  from 'lodash/capitalize';
-import type { RootState } from '../../store/store';
 import { LogOutUser } from '../../store/user/action';
+import { H5, P2 } from '../typography';
+import type { RootState } from '../../store/store';
 import type { UserType } from '../../data/users';
 import style from './header.module.scss';
-import { H5, P2 } from '../typography/typography';
+
 
 export const Header: FC = () => {
   const dispatch = useDispatch();

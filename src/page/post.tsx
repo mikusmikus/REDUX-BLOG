@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { MainBody } from '../commonComponents';
+import { H1 } from '../components/typography';
+import { addCommentHandler, deleteCommentAction, deletePostAction } from '../store/blog/action';
 import { RootState } from '../store/store';
 import { Comment } from '../store/blog/types';
-import { addCommentHandler, deleteCommentAction, deletePostAction } from '../store/blog/action';
-import { H1 } from '../components/typography/typography';
-import MainBody from '../commonComponents/mainBody/mainBody';
-import Post from '../components/post/post';
-import SmallPosts from '../components/smallPosts/smallPosts';
-import Comments from '../components/comments/comments';
+import Post from '../components/post';
+import SmallPosts from '../components/smallPosts';
+import Comments from '../components/comments';
 
 type PostId = {
   postId: string;

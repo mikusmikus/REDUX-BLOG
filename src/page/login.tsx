@@ -3,14 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Button,  Form,  Input, Label,  MainBody } from '../commonComponents';
 import { addUser } from '../store/user/action';
 import { UserType } from '../data/users';
-import MainBody from '../commonComponents/mainBody/mainBody';
-import Form from '../commonComponents/form/form';
-import Label from '../commonComponents/label/label';
-import Input from '../commonComponents/Input/input';
-import Button from '../commonComponents/button/button';
-import { H1 } from '../components/typography/typography';
+import { H1 } from '../components/typography';
 
 const LoginPage = () => {
   const [nameValue, setNameValue] = useState('');

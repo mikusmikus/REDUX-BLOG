@@ -1,11 +1,10 @@
 import React, { FC } from 'react';
-import Button from '../../commonComponents/button/button';
-import Image from '../../commonComponents/image/image';
-import { formatTime } from '../../helpers/formatTime';
-import { H2, P1, P2 } from '../typography/typography';
-import style from './post.module.scss';
+import {Button, Image} from '../../commonComponents';
+import { formatTime } from '../../helpers';
+import { H2, P1, P2 } from '../typography';
 import { PostType } from '../../store/blog/types';
 import { UserType } from '../../data/users';
+import style from './post.module.scss';
 
 type Props = {
   user: UserType;

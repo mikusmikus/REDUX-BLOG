@@ -2,10 +2,9 @@ import React, { FC, useState, useEffect } from 'react';
 import sampleSize  from 'lodash/sampleSize';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Image from '../../commonComponents/image/image';
-import Button from '../../commonComponents/button/button';
+import { Button, Image} from '../../commonComponents';
+import { H2, H3, H5, P2 } from '../typography';
 import { PostType } from '../../store/blog/types';
-import { H2, H3, H5, P2 } from '../typography/typography';
 import { RootState } from '../../store/store';
 import style from './smallPosts.module.scss';
 
