@@ -1,4 +1,4 @@
-import { users, UserType } from '../../data/users';
+import {  UserType } from '../../data/users';
 
 import { AllUserActions, SAVE_USER_INFO, LOGOUT_USER } from './types';
 

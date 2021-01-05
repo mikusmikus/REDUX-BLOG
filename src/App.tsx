@@ -8,6 +8,7 @@ import RegisterPage from './page/register';
 import PostPage from './page/post';
 import { users } from './data/users';
 import { getPostsData } from './store/blog/action';
+import { addUser } from './store/user/action';
 import NewPost from './page/newPost';
 import EditPost from './page/editPost';
 import NotFoundPage from './page/notFound';
@@ -17,9 +18,11 @@ const App: FC = () => {
 
   useEffect(() => {
     const localUsers = JSON.parse(localStorage.usersBlog || '[]');
+    const currentUser = JSON.parse(localStorage.usersBlogUser || '{}');
     if (localUsers.length === 0) {
       localStorage.usersBlog = JSON.stringify(users);
     }
+    dispatch(addUser(currentUser));
     dispatch(getPostsData());
   }, []);
 

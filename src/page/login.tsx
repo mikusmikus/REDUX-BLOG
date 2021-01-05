@@ -28,6 +28,7 @@ const LoginPage = () => {
     e.preventDefault();
     const loggedUser = localUsers.find((user) => user.username === name && user.password === pw);
     if (loggedUser) {
+      localStorage.usersBlogUser = JSON.stringify(loggedUser);
       dispatch(addUser(loggedUser));
       setNameValue('');
       setPasswordValue('');

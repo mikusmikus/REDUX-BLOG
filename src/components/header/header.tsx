@@ -80,7 +80,10 @@ export const Header: FC = () => {
                           exact
                           activeClassName={style.active}
                           to="/login"
-                          onClick={() => dispatch(LogOutUser())}
+                          onClick={() => {
+                            dispatch(LogOutUser());
+                            localStorage.usersBlogUser = JSON.stringify({});
+                          }}
                         >
                           logout
                         </NavLink>
