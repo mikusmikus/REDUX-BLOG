@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import { sampleSize } from 'lodash';
+import sampleSize  from 'lodash/sampleSize';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Image from '../../commonComponents/image/image';

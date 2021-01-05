@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUserSecret, faDog, faUserCog } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
-import { capitalize } from 'lodash';
+import capitalize  from 'lodash/capitalize';
 import type { RootState } from '../../store/store';
 import { LogOutUser } from '../../store/user/action';
 import type { UserType } from '../../data/users';

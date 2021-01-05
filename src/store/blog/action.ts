@@ -1,5 +1,6 @@
 import { Dispatch } from 'redux';
-import { sampleSize, random } from 'lodash';
+import random from 'lodash/random';
+import sampleSize from 'lodash/sampleSize';
 import axios from 'axios';
 import {
   ADD_POSTS,

@@ -25,11 +25,13 @@ const App: FC = () => {
     if (localUsers.length === 0) {
       localStorage.usersBlog = JSON.stringify(users);
     }
+    
     if (localPosts.length === 0) {
       dispatch(getPostsData());
     } else {
       dispatch(addBlogPosts(localPosts));
     }
+
     dispatch(addUser(currentUser));
   }, []);
 

@@ -1,5 +1,4 @@
-import { act } from '@testing-library/react';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import {
   AllActions,
   PostType,
