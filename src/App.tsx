@@ -17,9 +17,10 @@ const App: FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+
     const localUsers = JSON.parse(localStorage.usersBlog || '[]');
+    const localPosts = JSON.parse(localStorage.blogPosts || '[]');
     const currentUser = JSON.parse(localStorage.usersBlogUser || '{}');
-    const localPosts = JSON.parse(localStorage.blogPosts || '{}');
 
     if (localUsers.length === 0) {
       localStorage.usersBlog = JSON.stringify(users);
@@ -29,7 +30,6 @@ const App: FC = () => {
     } else {
       dispatch(addBlogPosts(localPosts));
     }
-
     dispatch(addUser(currentUser));
   }, []);
 

@@ -39,7 +39,7 @@ const EditPost = () => {
         comments: post.comments,
       };
       dispatch(EditPostAction(newPost));
-      const localPosts:PostType[] = JSON.parse(localStorage.blogPosts || '{}');
+      const localPosts:PostType[] = JSON.parse(localStorage.blogPosts || '[]');
       const localPostIndex = localPosts.findIndex(localPost => localPost.postId === post.postId);
       localPosts.splice(localPostIndex, 1, newPost);
       localStorage.blogPosts = JSON.stringify(localPosts);

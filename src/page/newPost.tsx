@@ -37,7 +37,7 @@ const NewPost = () => {
       };
       dispatch(AddPostAction(newPost));
       history.push('/');
-      const localPosts:PostType[] = JSON.parse(localStorage.blogPosts || '{}');
+      const localPosts:PostType[] = JSON.parse(localStorage.blogPosts || '[]');
       localPosts.push(newPost);
       localStorage.blogPosts = JSON.stringify(localPosts);
 
