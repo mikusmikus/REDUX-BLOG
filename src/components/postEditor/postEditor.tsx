@@ -20,7 +20,7 @@ type Props = {
     category1: string,
     category2: string
   ) => void;
-  handleCancel: () => void
+  handleCancel: () => void;
 };
 
 const categories: string[] = [];
@@ -32,6 +32,7 @@ const PostEditor: FC<Props> = ({ SavePostHandler, handleCancel }) => {
   const [category1, setCategory1] = useState('');
   const [category2, setCategory2] = useState('');
   const posts = useSelector((state: RootState) => state.blogPosts);
+
   const { postId } = useParams<{ postId: string }>();
 
   useEffect(() => {
@@ -96,7 +97,7 @@ const PostEditor: FC<Props> = ({ SavePostHandler, handleCancel }) => {
                       type="text"
                       list="data1"
                       id="category1"
-                      placeholder='Category'
+                      placeholder="Category"
                       required
                       onChangeHandler={(value) => setCategory1(value)}
                     />
@@ -109,7 +110,7 @@ const PostEditor: FC<Props> = ({ SavePostHandler, handleCancel }) => {
                       type="text"
                       list="data2"
                       id="category2"
-                      placeholder='Category'
+                      placeholder="Category"
                       required
                       onChangeHandler={(value) => setCategory2(value)}
                     />
@@ -133,10 +134,10 @@ const PostEditor: FC<Props> = ({ SavePostHandler, handleCancel }) => {
               </div>
             </div>
 
-            <Button size='large' color='success' type="submit">
+            <Button size="large" color="success" type="submit">
               Save{' '}
             </Button>
-            <Button size='large' color='success' handleClick={handleCancel}>
+            <Button size="large" color="success" handleClick={handleCancel}>
               Cancel
             </Button>
           </Form>

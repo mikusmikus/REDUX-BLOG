@@ -99,6 +99,10 @@ export const getPostsData = () => {
         });
         dispatch(addBlogPosts(posts));
         dispatch(changeLoading(false));
+        const localPosts = JSON.parse(localStorage.blogPosts || '[]');
+        if (localPosts.length === 0) {
+          localStorage.blogPosts = JSON.stringify(posts);
+        }
       });
     });
   };

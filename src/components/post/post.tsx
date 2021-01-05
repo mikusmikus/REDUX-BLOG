@@ -35,7 +35,7 @@ const Post: FC<Props> = ({ post, user, handlePostEdit, handleToHomePage, deleteP
         <div className="col-xs-6">
           <div className="row end-xs">
             <div className="col-xs-12">
-              {user.status === 'admin' && (
+              {(user.username?.toLowerCase() === author.toLowerCase() || user.status==='admin') && (
                 <Button handleClick={handlePostEdit} color="success">
                   Edit post
                 </Button>

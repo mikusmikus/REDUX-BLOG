@@ -7,7 +7,7 @@ import Blog from './page/blog';
 import RegisterPage from './page/register';
 import PostPage from './page/post';
 import { users } from './data/users';
-import { getPostsData } from './store/blog/action';
+import { addBlogPosts, getPostsData } from './store/blog/action';
 import { addUser } from './store/user/action';
 import NewPost from './page/newPost';
 import EditPost from './page/editPost';
@@ -19,11 +19,18 @@ const App: FC = () => {
   useEffect(() => {
     const localUsers = JSON.parse(localStorage.usersBlog || '[]');
     const currentUser = JSON.parse(localStorage.usersBlogUser || '{}');
+    const localPosts = JSON.parse(localStorage.blogPosts || '{}');
+
     if (localUsers.length === 0) {
       localStorage.usersBlog = JSON.stringify(users);
     }
+    if (localPosts.length === 0) {
+      dispatch(getPostsData());
+    } else {
+      dispatch(addBlogPosts(localPosts));
+    }
+
     dispatch(addUser(currentUser));
-    dispatch(getPostsData());
   }, []);
 
   return (
