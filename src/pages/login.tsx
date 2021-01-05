@@ -3,32 +3,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Button,  Form,  Input, Label,  MainBody } from '../commonComponents';
-import { addUser } from '../store/user/action';
-import { UserType } from '../data/users';
+import { addUser, UserType } from '../store/user';
 import { H1 } from '../components/typography';
+import { Button, Form, Input, Label, MainBody } from '../commonComponents';
 
 const LoginPage = () => {
   const [nameValue, setNameValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
-  
+
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>, name: string, pw: string) => {
+    e.preventDefault();
+
     const localUsers: UserType[] = JSON.parse(localStorage.usersBlog || '[]');
     if (localUsers.length === 0) {
       alert('wrong username or password');
       return;
     }
-    e.preventDefault();
     const loggedUser = localUsers.find((user) => user.username === name && user.password === pw);
     if (loggedUser) {
+
       localStorage.usersBlogUser = JSON.stringify(loggedUser);
       dispatch(addUser(loggedUser));
       setNameValue('');
       setPasswordValue('');
       history.push('./');
+
     } else {
       alert('wrong username or password');
     }
@@ -64,10 +66,10 @@ const LoginPage = () => {
                         id="password"
                         required
                         type="password"
-                        propsClass='margin-bottom--32'
+                        propsClass="margin-bottom--32"
                       />
 
-                      <Button type="submit" size='large' color='success'>
+                      <Button type="submit" size="large" color="success">
                         Login
                       </Button>
                     </div>

@@ -14,7 +14,7 @@ import {
   Comment,
 } from './types';
 import { Authors } from '../../data/authors';
-import { multiplyText } from '../../helpers/multiplyText';
+import { multiplyText } from '../../helperFunctions/multiplyText';
 import { categories } from '../../data/categories';
 import { changeLoading } from '../loading/action';
 

@@ -1,6 +1,4 @@
-import {  UserType } from '../../data/users';
-
-import { AllUserActions, SAVE_USER_INFO, LOGOUT_USER } from './types';
+import { AllUserActions, SAVE_USER_INFO, LOGOUT_USER, UserType } from './types';
 
 const initialState: UserType = {};
 

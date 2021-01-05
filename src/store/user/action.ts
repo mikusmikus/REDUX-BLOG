@@ -1,5 +1,4 @@
-import { SAVE_USER_INFO, LOGOUT_USER } from './types';
-import { UserType } from '../../data/users';
+import { SAVE_USER_INFO, LOGOUT_USER, UserType } from './types';
 
 export const addUser = (user: UserType) => {
   return {

@@ -13,7 +13,6 @@ export type Comment = {
   body: string;
 };
 
-export type Category = 'sport' | 'cars' | 'music' | 'life' | 'people' | 'news';
 
 export type PostType = {
   postId: string;

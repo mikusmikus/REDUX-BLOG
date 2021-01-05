@@ -5,6 +5,11 @@ import { sortPostsCategory } from './sortPostsCategory';
 import { filterPosts } from './filterPosts';
 import { makeCategoryList } from './makeCategoryList';
 
-
-
-export { formatTime, multiplyText, chooseCategoryColor, sortPostsCategory, filterPosts, makeCategoryList };
+export {
+  formatTime,
+  multiplyText,
+  chooseCategoryColor,
+  sortPostsCategory,
+  filterPosts,
+  makeCategoryList,
+};

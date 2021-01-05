@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
 import React, { FC } from 'react';
-import {Button, Image} from '../../commonComponents';
-import { formatTime } from '../../helpers';
 import { PostType } from '../../store/blog/types';
+import { UserType } from '../../store/user';
+import {Button, Image} from '../../commonComponents';
 import { H3, P1, P2 } from '../typography';
-import { UserType } from '../../data/users';
+import { formatTime } from '../../helperFunctions';
 import style from './postCard.module.scss';
 
 

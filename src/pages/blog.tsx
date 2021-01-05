@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, Image, Input, MainBody } from '../commonComponents';
-import { deletePostAction } from '../store/blog/action';
-import { addInputSearchValue } from '../store/search/action';
-import { RootState } from '../store/store';
-import { H1, H3 } from '../components/typography';
+import { RootState } from '../store';
+import { addInputSearchValue } from '../store/search';
+import { deletePostAction } from '../store/blog';
 import PostCard from '../components/postCard';
-import { chooseCategoryColor, filterPosts, makeCategoryList, sortPostsCategory } from '../helpers';
-
-
+import { H1, H3 } from '../components/typography';
+import { Button, Image, Input, MainBody } from '../commonComponents';
+import { chooseCategoryColor, filterPosts, makeCategoryList, sortPostsCategory } from '../helperFunctions';
 
 const Blog = () => {
   const [chosenCategory, setChosenCategory] = useState('all');

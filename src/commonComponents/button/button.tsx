@@ -1,12 +1,15 @@
-/* eslint-disable react/button-has-type */
 import React, { FC } from 'react';
 import style from './button.module.scss';
 
+type ButtonType = 'button' | 'submit' | 'reset';
+type ButtonSize = 'small' | 'medium' | 'large';
+type ButtonColor = 'primary' | 'success' | 'warning';
+
 type Props = {
   children?: React.ReactNode;
-  type?: 'button' | 'submit' | 'reset';
-  size?: 'small' | 'medium' | 'large';
-  color?: 'primary' | 'success' | 'warning';
+  type?: ButtonType;
+  size?: ButtonSize;
+  color?: ButtonColor;
   handleClick?: () => void;
   propsClass?: string;
 };
@@ -35,9 +38,11 @@ const Button: FC<Props> = ({
     if (size === 'large') return '32px';
     return '24px';
   };
+
   return (
     <button
       className={`${style.button} ${propsClass}`}
+      // eslint-disable-next-line react/button-has-type
       type={type}
       style={{ padding: buttonSize(), backgroundColor: buttonColor(), fontSize: fontSize() }}
       onClick={handleClick}

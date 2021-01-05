@@ -1,18 +1,22 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { RootState } from '../store';
+import { PostType, EditPostAction } from '../store/blog';
 import { MainBody } from '../commonComponents';
 import PostEditor from '../components/postEditor';
 import { H1 } from '../components/typography';
-import { PostType } from '../store/blog/types';
-import { RootState } from '../store/store';
-import { AddPostAction } from '../store/blog/action';
 
-const NewPost = () => {
-  const loggedUser = useSelector((state: RootState) => state.user.username);
+
+const EditPost = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const { postId } = useParams<{ postId: string }>();
+
+  const { post, loggedUser } = useSelector((state: RootState) => ({
+    post: state.blogPosts.find((onePost) => onePost.postId === postId),
+    loggedUser: state.user.username,
+  }));
 
   const SavePostHandler = (
     e: React.FormEvent<HTMLFormElement>,
@@ -23,29 +27,29 @@ const NewPost = () => {
     category2: string
   ) => {
     e.preventDefault();
-
-    if (loggedUser) {
+    if (loggedUser && post) {
       const newPost: PostType = {
-        postId: uuidv4(),
+        postId: post.postId,
         title,
         body,
         author: loggedUser,
         image,
         updated: Date.now(),
         category: [category1, category2],
-        comments: [],
+        comments: post.comments,
       };
-      dispatch(AddPostAction(newPost));
-      history.push('/');
-      const localPosts:PostType[] = JSON.parse(localStorage.blogPosts || '[]');
-      localPosts.push(newPost);
-      localStorage.blogPosts = JSON.stringify(localPosts);
+      dispatch(EditPostAction(newPost));
 
+      const localPosts:PostType[] = JSON.parse(localStorage.blogPosts || '[]');
+      const localPostIndex = localPosts.findIndex(localPost => localPost.postId === post.postId);
+      localPosts.splice(localPostIndex, 1, newPost);
+      localStorage.blogPosts = JSON.stringify(localPosts);
+      
+      history.push(`/blog/${postId}`);
     }
   };
-
   const handleCancel = () => {
-    history.push('/');
+    history.push(`/blog/${postId}`);
   };
 
   return (
@@ -53,7 +57,7 @@ const NewPost = () => {
       <div className="row">
         <div className="col-xs-10 col-xs-offset-1">
           <MainBody>
-            <H1>This Is New Post Page</H1>
+            <H1>This EDIT Post Page</H1>
             <PostEditor SavePostHandler={SavePostHandler} handleCancel={handleCancel} />
           </MainBody>
         </div>
@@ -62,4 +66,4 @@ const NewPost = () => {
   );
 };
 
-export default NewPost;
+export default EditPost;

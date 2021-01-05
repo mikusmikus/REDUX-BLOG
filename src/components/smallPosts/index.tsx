@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, Image} from '../../commonComponents';
 import { H2, H3, H5, P2 } from '../typography';
-import { PostType } from '../../store/blog/types';
-import { RootState } from '../../store/store';
+import { PostType } from '../../store/blog';
+import { RootState } from '../../store';
 import style from './smallPosts.module.scss';
 
 type Props = {

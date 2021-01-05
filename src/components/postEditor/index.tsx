@@ -3,7 +3,7 @@ import React, { FC, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Button, Datalist, Form, Image, Input, Label, Textarea } from '../../commonComponents';
-import { RootState } from '../../store/store';
+import { RootState } from '../../store';
 
 type Props = {
   SavePostHandler: (

@@ -5,13 +5,13 @@ import { Header } from './components/header';
 import { users } from './data/users';
 import { addBlogPosts, getPostsData } from './store/blog/action';
 import { addUser } from './store/user/action';
-import Login from './page/login';
-import Blog from './page/blog';
-import RegisterPage from './page/register';
-import PostPage from './page/post';
-import NewPost from './page/newPost';
-import EditPost from './page/editPost';
-import NotFoundPage from './page/notFound';
+import Login from './pages/login';
+import Blog from './pages/blog';
+import RegisterPage from './pages/register';
+import PostPage from './pages/post';
+import NewPost from './pages/newPost';
+import EditPost from './pages/editPost';
+import NotFoundPage from './pages/notFound';
 
 const App: FC = () => {
   const dispatch = useDispatch();

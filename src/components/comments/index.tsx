@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
-import {Button, Textarea} from '../../commonComponents';
-import { H2, H3, P2 } from '../typography';
 import { PostType } from '../../store/blog/types';
-import { UserType } from '../../data/users';
+import { UserType } from '../../store/user';
+import { Button, Textarea } from '../../commonComponents';
+import { H2, H3, P2 } from '../typography';
 import style from './comments.module.scss';
-
 
 type Props = {
   post: PostType;
@@ -35,7 +34,13 @@ const Comments: FC<Props> = ({
               <div className="col-xs-4">
                 <P2>{email}</P2>
                 {user.status === 'admin' && (
-                  <Button handleClick={() => deleteCommentHandler(commentId)} size="small" color="warning">Delete comment</Button>
+                  <Button
+                    handleClick={() => deleteCommentHandler(commentId)}
+                    size="small"
+                    color="warning"
+                  >
+                    Delete comment
+                  </Button>
                 )}
               </div>
               <div className="col-xs-8">

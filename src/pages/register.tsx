@@ -4,10 +4,9 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRegistered } from '@fortawesome/free-solid-svg-icons';
+import { UserType, addUser } from '../store/user';
 import { Button,  Form,  Input, Label,  MainBody } from '../commonComponents';
 import { H1 } from '../components/typography';
-import { UserType } from '../data/users';
-import { addUser } from '../store/user/action';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');

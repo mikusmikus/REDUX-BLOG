@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import {Button, Image} from '../../commonComponents';
-import { formatTime } from '../../helpers';
+import { formatTime } from '../../helperFunctions';
 import { H2, P1, P2 } from '../typography';
 import { PostType } from '../../store/blog/types';
-import { UserType } from '../../data/users';
+import { UserType } from '../../store/user';
 import style from './post.module.scss';
 
 type Props = {
