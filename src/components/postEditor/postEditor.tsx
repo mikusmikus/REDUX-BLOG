@@ -96,6 +96,7 @@ const PostEditor: FC<Props> = ({ SavePostHandler, handleCancel }) => {
                       type="text"
                       list="data1"
                       id="category1"
+                      placeholder='Category'
                       required
                       onChangeHandler={(value) => setCategory1(value)}
                     />
@@ -108,6 +109,7 @@ const PostEditor: FC<Props> = ({ SavePostHandler, handleCancel }) => {
                       type="text"
                       list="data2"
                       id="category2"
+                      placeholder='Category'
                       required
                       onChangeHandler={(value) => setCategory2(value)}
                     />
