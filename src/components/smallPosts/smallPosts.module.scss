@@ -1,11 +1,11 @@
-$apricot: #fca311;
-$platinum: #e5e5e5;
+@import '../../styles/index.scss';
 
 .smallPosts {
   padding: 0 50px 100px 50px;
   margin: 50px 0;
   border-bottom: 3px solid $apricot;
 }
+
 .smallPostCard {
   height: 100%;
   padding: 10px;
