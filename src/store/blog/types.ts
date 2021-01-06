@@ -1,5 +1,4 @@
 export const ADD_POSTS = 'ADD_POSTS';
-export const ADD_COMMENTS = 'ADD_COMMENTS';
 export const ADD_NEW_COMMENT = 'ADD_NEW_COMMENT';
 export const DELETE_POST = 'DELETE_POST';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
@@ -12,7 +11,6 @@ export type Comment = {
   email: string;
   body: string;
 };
-
 
 export type PostType = {
   postId: string;
@@ -28,11 +26,6 @@ export type PostType = {
 export type BlogPostAction = {
   type: typeof ADD_POSTS;
   posts: PostType[];
-};
-
-export type BlogCommentsAction = {
-  type: typeof ADD_COMMENTS;
-  comments: Comment[];
 };
 
 export type NewCommentAction = {
@@ -62,7 +55,6 @@ export type EditPostAction = {
 
 export type AllActions =
   | BlogPostAction
-  | BlogCommentsAction
   | NewCommentAction
   | DeletePostAction
   | DeleteCommentAction

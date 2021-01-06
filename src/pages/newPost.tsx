@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import { MainBody } from '../commonComponents';
-import PostEditor from '../components/postEditor';
-import { H1 } from '../components/typography';
-import { AddPostAction, PostType } from '../store/blog';
+import PostEditor from '../components/postEditor/postEditor';
+import { H1 } from '../components/typography/typography';
+import { PostType } from '../store/blog/types';
+import { AddPostAction } from '../store/blog/action';
 import { RootState } from '../store';
 
 const NewPost = () => {
@@ -35,7 +36,7 @@ const NewPost = () => {
         comments: [],
       };
       dispatch(AddPostAction(newPost));
-      
+
       const localPosts: PostType[] = JSON.parse(localStorage.blogPosts || '[]');
       localPosts.push(newPost);
       localStorage.blogPosts = JSON.stringify(localPosts);

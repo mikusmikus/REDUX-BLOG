@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, MainBody } from '../commonComponents';
-import { H1 } from '../components/typography';
+import { H1 } from '../components/typography/typography';
 
 const NotFoundPage = () => {
   return (

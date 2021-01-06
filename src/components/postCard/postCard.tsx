@@ -1,12 +1,10 @@
-/* eslint-disable max-len */
 import React, { FC } from 'react';
 import { PostType } from '../../store/blog/types';
-import { UserType } from '../../store/user';
-import {Button, Image} from '../../commonComponents';
-import { H3, P1, P2 } from '../typography';
-import { formatTime } from '../../helperFunctions';
+import { UserType } from '../../store/user/types';
+import { Button, Image } from '../../commonComponents';
+import { H3, P1, P2 } from '../typography/typography';
+import { formatTime, highlightsText } from '../../helperFunctions';
 import style from './postCard.module.scss';
-
 
 type Props = {
   user: UserType;
@@ -26,17 +24,6 @@ const PostCard: FC<Props> = ({
 }) => {
   const { title, body, image, category, author, updated, comments } = post;
 
-  const highlightsText = () => {
-    const splitted = title.split(searchValue);
-    let outPutString = '';
-
-    splitted.forEach((item) => {
-      outPutString += `<span>${item}</span><span class='apricot'>${searchValue}</span>`;
-    });
-    const realOutput = outPutString.slice(0, outPutString.length - 30 - searchValue.length);
-    return { __html: realOutput };
-  };
-
   return (
     <div className={style.postCard}>
       <div className="row end-xs">
@@ -53,7 +40,7 @@ const PostCard: FC<Props> = ({
           {!searchValue ? (
             <H3>{title}</H3>
           ) : (
-            <h3 className="heading3" dangerouslySetInnerHTML={highlightsText()} />
+            <h3 className="heading3" dangerouslySetInnerHTML={highlightsText(title, searchValue)} />
           )}
         </div>
       </div>
@@ -65,7 +52,7 @@ const PostCard: FC<Props> = ({
           <P1 propsClass="margin-bottom--16">
             {body.substring(0, 200)}
             {'... '}
-            <Button type="button" handleClick={handleReadMore} propsClass="ReadMore">
+            <Button type="button" handleClick={handleReadMore}>
               Read more...
             </Button>
           </P1>
@@ -73,7 +60,7 @@ const PostCard: FC<Props> = ({
           <P2>
             category:{' '}
             {category.map((cat) => (
-              <em key={cat} className={`${chosenCategory === cat && 'apricot'}`}>
+              <em key={cat} className={`${chosenCategory === cat && 'success'}`}>
                 #{cat}{' '}
               </em>
             ))}

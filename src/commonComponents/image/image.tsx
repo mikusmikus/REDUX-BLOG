@@ -4,12 +4,11 @@ import style from './image.module.scss';
 type Props = {
   src?: string;
   alt? :string
-  propsClass?: string;
 };
 
-const Image: FC<Props> = ({ src, alt, propsClass }) => {
+const Image: FC<Props> = ({ src, alt }) => {
   return (
-    <div className={`${style.imageWrapper} ${propsClass}`}>
+    <div className={style.imageWrapper}>
       <img src={src} alt={alt} className={style.image} />
     </div>
   );

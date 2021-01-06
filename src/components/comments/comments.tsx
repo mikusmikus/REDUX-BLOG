@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { PostType } from '../../store/blog/types';
-import { UserType } from '../../store/user';
+import { UserType } from '../../store/user/types';
 import { Button, Textarea } from '../../commonComponents';
-import { H2, H3, P2 } from '../typography';
+import { H2, H3, P2 } from '../typography/typography';
 import style from './comments.module.scss';
 
 type Props = {

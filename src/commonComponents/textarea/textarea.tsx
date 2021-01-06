@@ -6,7 +6,6 @@ type Props = {
   placeholder?: string;
   children?: React.ReactNode;
   rows?: number;
-  propsClass?: string;
   id?: string;
   required?: boolean;
   onChangeHandler: (value: string) => void;
@@ -14,7 +13,6 @@ type Props = {
 
 const Textarea: FC<Props> = ({
   children,
-  propsClass,
   id,
   required,
   rows=10,
@@ -24,7 +22,7 @@ const Textarea: FC<Props> = ({
 }) => {
   return (
     <textarea
-      className={`${style.textarea} ${propsClass}`}
+      className={style.textarea}
       placeholder={placeholder}
       rows={rows}
       value={value}

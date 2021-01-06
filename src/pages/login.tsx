@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { addUser, UserType } from '../store/user';
-import { H1 } from '../components/typography';
+import { UserType } from '../store/user/types';
+import { addUser } from '../store/user/action';
+import { H1 } from '../components/typography/typography';
 import { Button, Form, Input, Label, MainBody } from '../commonComponents';
 
 const LoginPage = () => {
@@ -24,13 +25,11 @@ const LoginPage = () => {
     }
     const loggedUser = localUsers.find((user) => user.username === name && user.password === pw);
     if (loggedUser) {
-
       localStorage.usersBlogUser = JSON.stringify(loggedUser);
       dispatch(addUser(loggedUser));
       setNameValue('');
       setPasswordValue('');
       history.push('./');
-
     } else {
       alert('wrong username or password');
     }
@@ -59,15 +58,16 @@ const LoginPage = () => {
                       />
 
                       <Label htmlFor="password">password</Label>
-                      <Input
-                        placeholder="Enter Password"
-                        value={passwordValue}
-                        onChangeHandler={(value) => setPasswordValue(value)}
-                        id="password"
-                        required
-                        type="password"
-                        propsClass="margin-bottom--32"
-                      />
+                      <div className="margin-bottom--32">
+                        <Input
+                          placeholder="Enter Password"
+                          value={passwordValue}
+                          onChangeHandler={(value) => setPasswordValue(value)}
+                          id="password"
+                          required
+                          type="password"
+                        />
+                      </div>
 
                       <Button type="submit" size="large" color="success">
                         Login

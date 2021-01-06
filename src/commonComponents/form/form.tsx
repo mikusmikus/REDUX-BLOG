@@ -3,13 +3,13 @@ import style from './form.module.scss';
 
 type Props = {
   handleSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
-  propsClass?: string;
   children: React.ReactNode;
+  action?: string; 
 };
 
-const Form: FC<Props> = ({ handleSubmit, children, propsClass }) => {
+const Form: FC<Props> = ({ handleSubmit, children, action }) => {
   return (
-    <form action="" onSubmit={handleSubmit} className={`${style.form} ${propsClass}`}>
+    <form action={action} onSubmit={handleSubmit} className={style.form}>
       {children}
     </form>
   );

@@ -4,9 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUserSecret, faDog, faUserCog } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
-import { LogOutUser,  UserType } from '../../store/user';
+import { UserType } from '../../store/user/types';
+import { LogOutUser } from '../../store/user/action';
 import type { RootState } from '../../store';
-import { H5, P2 } from '../typography';
+import { H5, P2 } from '../typography/typography';
 import style from './header.module.scss';
 
 export const Header: FC = () => {
@@ -36,11 +37,7 @@ export const Header: FC = () => {
                     {user.username ? (
                       <H5>
                         Hello, {capitalize(user.username)}!{' '}
-                        {user.status === 'user' ? (
-                          <FontAwesomeIcon icon={faUser} />
-                        ) : (
-                          <FontAwesomeIcon icon={faUserCog} />
-                        )}{' '}
+                        <FontAwesomeIcon icon={user.status === 'user' ? faUser : faUserCog} />
                       </H5>
                     ) : (
                       <>
@@ -88,11 +85,7 @@ export const Header: FC = () => {
                         </NavLink>
                         <P2 propsClass="padding--0">
                           {user.status}{' '}
-                          {user.status === 'user' ? (
-                            <FontAwesomeIcon icon={faUser} />
-                          ) : (
-                            <FontAwesomeIcon icon={faUserCog} />
-                          )}
+                          <FontAwesomeIcon icon={user.status === 'user' ? faUser : faUserCog} />
                         </P2>
                       </>
                     )}

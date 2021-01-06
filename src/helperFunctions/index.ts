@@ -4,6 +4,7 @@ import { chooseCategoryColor } from './chooseCategoryColor';
 import { sortPostsCategory } from './sortPostsCategory';
 import { filterPosts } from './filterPosts';
 import { makeCategoryList } from './makeCategoryList';
+import { highlightsText } from './highlightsSearchText';
 
 export {
   formatTime,
@@ -12,4 +13,5 @@ export {
   sortPostsCategory,
   filterPosts,
   makeCategoryList,
+  highlightsText
 };

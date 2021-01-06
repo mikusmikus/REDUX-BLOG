@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import {Button, Image} from '../../commonComponents';
+import { Button, Image } from '../../commonComponents';
 import { formatTime } from '../../helperFunctions';
-import { H2, P1, P2 } from '../typography';
+import { H2, P1, P2 } from '../typography/typography';
 import { PostType } from '../../store/blog/types';
-import { UserType } from '../../store/user';
+import { UserType } from '../../store/user/types';
 import style from './post.module.scss';
 
 type Props = {
@@ -34,7 +34,8 @@ const Post: FC<Props> = ({ post, user, handlePostEdit, handleToHomePage, deleteP
         <div className="col-xs-6">
           <div className="row end-xs">
             <div className="col-xs-12">
-              {(user.username?.toLowerCase() === author.toLowerCase() || user.status==='admin') && (
+              {(user.username?.toLowerCase() === author.toLowerCase() ||
+                user.status === 'admin') && (
                 <Button handleClick={handlePostEdit} color="success">
                   Edit post
                 </Button>
@@ -42,7 +43,9 @@ const Post: FC<Props> = ({ post, user, handlePostEdit, handleToHomePage, deleteP
             </div>
             <div className="col-xs-12">
               {user.status === 'admin' && (
-                <Button handleClick={deletePostHandler} size="small" color="warning">Delete post</Button>
+                <Button handleClick={deletePostHandler} size="small" color="warning">
+                  Delete post
+                </Button>
               )}
             </div>
           </div>

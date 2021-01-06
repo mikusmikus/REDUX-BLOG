@@ -3,13 +3,12 @@ import style from './label.module.scss';
 
 type Props = {
   children?: React.ReactNode;
-  propsClass?: string;
   htmlFor?: string;
 };
 
-const Label: FC<Props> = ({ children, htmlFor, propsClass }) => {
+const Label: FC<Props> = ({ children, htmlFor }) => {
   return (
-    <label htmlFor={htmlFor} className={`${style.label} ${propsClass}`}>
+    <label htmlFor={htmlFor} className={style.label}>
       {children}
     </label>
   );

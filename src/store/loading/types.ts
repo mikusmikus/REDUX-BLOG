@@ -4,5 +4,3 @@ export type ChangeLoadingAction = {
   type: typeof LOADING;
   isLoading:boolean
 };
-
-

@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 @import 'flexboxgrid';
 
-$apricot: #fca311;
-$platinum: #e5e5e5;
+$primary: #e5e5e5;
+$success: #fca311;
+$warning: #cc6b6b;
 $white: #ffffff;
 
 body {
@@ -21,7 +22,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
 }
-em{
+em {
   font-weight: 500;
 }
 .margin-left--16 {
@@ -47,10 +48,9 @@ em{
   text-align: center;
 }
 
-.apricot{
-  background-color: $apricot;
+.success {
+  background-color: $success;
 }
-
 
 .heading3 {
   font-size: 32px;

@@ -2,8 +2,8 @@
 
 .button {
     font-size: 24px;
-    padding: 6px 12px;
-    background-color: $platinum;
+    padding: 6px 16px;
+    background-color: $primary;
     font-weight: 500;
     border: none;
     margin: 2px;
@@ -11,5 +11,19 @@
     cursor: pointer;
     &:hover{
         opacity: 0.8;
+    }
+    &.small{
+        padding: 4px 8px;
+        font-size: 16px;
+    }
+    &.large{
+        padding: 12px 32px;
+        font-size: 32px;
+    }
+    &.success{
+       background-color: $success;
+    }
+    &.warning{
+       background-color: $warning
     }
   }

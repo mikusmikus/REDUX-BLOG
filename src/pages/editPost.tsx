@@ -2,10 +2,11 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { RootState } from '../store';
-import { PostType, EditPostAction } from '../store/blog';
+import { EditPostAction } from '../store/blog/action';
+import { PostType } from '../store/blog/types';
 import { MainBody } from '../commonComponents';
-import PostEditor from '../components/postEditor';
-import { H1 } from '../components/typography';
+import PostEditor from '../components/postEditor/postEditor';
+import { H1 } from '../components/typography/typography';
 
 
 const EditPost = () => {

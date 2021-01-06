@@ -3,12 +3,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
-import { addCommentHandler, deleteCommentAction, deletePostAction, Comment } from '../store/blog';
-import Post from '../components/post';
-import SmallPosts from '../components/smallPosts';
-import Comments from '../components/comments';
+import { addCommentAction, deleteCommentAction, deletePostAction } from '../store/blog/action';
+import { Comment } from '../store/blog/types';
+import Post from '../components/post/post';
+import SmallPosts from '../components/smallPosts/smallPosts';
+import Comments from '../components/comments/comments';
 import { MainBody } from '../commonComponents';
-import { H1 } from '../components/typography';
+import { H1 } from '../components/typography/typography';
 
 type PostId = {
   postId: string;
@@ -39,14 +40,16 @@ const PostPage = () => {
       alert('empty comment');
       return;
     }
-    const newComment: Comment = {
-      commentId: uuidv4(),
-      postId,
-      email: 'comment@email.com',
-      body: commentValue,
-    };
-    dispatch(addCommentHandler(newComment));
-    setCommentValue('');
+    if (user.email) {
+      const newComment: Comment = {
+        commentId: uuidv4(),
+        postId,
+        email: user.email,
+        body: commentValue,
+      };
+      dispatch(addCommentAction(newComment));
+      setCommentValue('');
+    }
   };
   const deletePostHandler = () => {
     if (window.confirm('Are you sure want to delete post?')) {

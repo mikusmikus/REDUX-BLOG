@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRegistered } from '@fortawesome/free-solid-svg-icons';
-import { UserType, addUser } from '../store/user';
-import { Button,  Form,  Input, Label,  MainBody } from '../commonComponents';
-import { H1 } from '../components/typography';
+import { UserType } from '../store/user/types';
+import { addUser } from '../store/user/action';
+import { Button, Form, Input, Label, MainBody } from '../commonComponents';
+import { H1 } from '../components/typography/typography';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
@@ -79,20 +80,21 @@ const RegisterPage = () => {
                         id="password"
                         required
                       />
-                      <Label propsClass="commentLabel" htmlFor="password2">
+                      <Label htmlFor="password2">
                         Password
                       </Label>
-                      <Input
-                        placeholder="Enter password again"
-                        type="password"
-                        value={password2}
-                        onChangeHandler={(value) => setPassword2(value)}
-                        id="password2"
-                        required
-                        propsClass='margin-bottom--32'
-                      />
+                      <div className="margin-bottom--32">
+                        <Input
+                          placeholder="Enter password again"
+                          type="password"
+                          value={password2}
+                          onChangeHandler={(value) => setPassword2(value)}
+                          id="password2"
+                          required
+                        />
+                      </div>
 
-                      <Button type="submit" size='large' color='success'>
+                      <Button type="submit" size="large" color="success">
                         Register
                       </Button>
                     </div>
