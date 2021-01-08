@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { RootState } from '../store';
 import { EditPostAction } from '../store/blog/action';
@@ -8,16 +8,18 @@ import { MainBody } from '../commonComponents';
 import PostEditor from '../components/postEditor/postEditor';
 import { H1 } from '../components/typography/typography';
 
-
 const EditPost = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { postId } = useParams<{ postId: string }>();
 
-  const { post, loggedUser } = useSelector((state: RootState) => ({
-    post: state.blogPosts.find((onePost) => onePost.postId === postId),
-    loggedUser: state.user.username,
-  }));
+  const { post, loggedUser } = useSelector(
+    (state: RootState) => ({
+      post: state.blogPosts.find((onePost) => onePost.postId === postId),
+      loggedUser: state.user.username,
+    }),
+    shallowEqual
+  );
 
   const SavePostHandler = (
     e: React.FormEvent<HTMLFormElement>,
@@ -41,11 +43,11 @@ const EditPost = () => {
       };
       dispatch(EditPostAction(newPost));
 
-      const localPosts:PostType[] = JSON.parse(localStorage.blogPosts || '[]');
-      const localPostIndex = localPosts.findIndex(localPost => localPost.postId === post.postId);
+      const localPosts: PostType[] = JSON.parse(localStorage.blogPosts || '[]');
+      const localPostIndex = localPosts.findIndex((localPost) => localPost.postId === post.postId);
       localPosts.splice(localPostIndex, 1, newPost);
       localStorage.blogPosts = JSON.stringify(localPosts);
-      
+
       history.push(`/blog/${postId}`);
     }
   };

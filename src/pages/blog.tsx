@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { RootState } from '../store';
 import { addInputSearchValue } from '../store/search/action';
 import { deletePostAction } from '../store/blog/action';
@@ -24,7 +24,7 @@ const Blog = () => {
     searchValue: state.seachPost,
     loading: state.loading,
     user: state.user,
-  }));
+  }), shallowEqual);
 
   const handleReadMore = (id: string) => {
     history.push(`/blog/${id}`);

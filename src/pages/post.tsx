@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useParams, useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { RootState } from '../store';
 import { addCommentAction, deleteCommentAction, deletePostAction } from '../store/blog/action';
 import { Comment } from '../store/blog/types';
@@ -22,11 +22,14 @@ const PostPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { post, loading, user } = useSelector((state: RootState) => ({
-    post: state.blogPosts.find((blogPost) => blogPost.postId === postId),
-    loading: state.loading,
-    user: state.user,
-  }));
+  const { post, loading, user } = useSelector(
+    (state: RootState) => ({
+      post: state.blogPosts.find((blogPost) => blogPost.postId === postId),
+      loading: state.loading,
+      user: state.user,
+    }),
+    shallowEqual
+  );
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
