@@ -9,8 +9,8 @@ import { H1 } from '../components/typography/typography';
 import { Button, Form, Input, Label, MainBody } from '../commonComponents';
 
 const LoginPage = () => {
-  const [nameValue, setNameValue] = useState('');
-  const [passwordValue, setPasswordValue] = useState('');
+  const [nameValue, setNameValue] = useState('mikus');
+  const [passwordValue, setPasswordValue] = useState('redux');
 
   const dispatch = useDispatch();
   const history = useHistory();
