@@ -51,6 +51,8 @@ const Blog = () => {
     setPostCount(postCount + 5);
   });
 
+  console.log(posts);
+
   if (loading) {
     return (
       <div className="container">

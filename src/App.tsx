@@ -12,6 +12,7 @@ import NewPost from './pages/newPost';
 import EditPost from './pages/editPost';
 import NotFoundPage from './pages/notFound';
 import Footer from './components/footer/footer';
+import About from './pages/about';
 
 const App: FC = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ const App: FC = () => {
         </Route>
         <Route path="/register">
           <RegisterPage />
+        </Route>
+        <Route path="/about">
+          <About />
         </Route>
         <Route path="/newpost">
           <NewPost />

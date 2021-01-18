@@ -5,9 +5,9 @@ import { H3, H5 } from '../typography/typography';
 import style from './footer.module.scss';
 
 const icons: JSX.Element[] = [
-  <FaFacebookSquare key="FaFacebookSquare" />,
-  <FaLinkedin key="FaLinkedin" />,
   <FaGithub key="FaGithub" />,
+  <FaLinkedin key="FaLinkedin" />,
+  <FaFacebookSquare key="FaFacebookSquare" />,
 ];
 
 const Footer = () => {
