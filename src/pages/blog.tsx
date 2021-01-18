@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import { RootState } from '../store';
 import { addInputSearchValue } from '../store/search/action';
 import { deletePostAction } from '../store/blog/action';
@@ -17,6 +18,7 @@ import {
 
 const Blog = () => {
   const [chosenCategory, setChosenCategory] = useState('all');
+  const [postCount, setPostCount] = useState(5);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -45,6 +47,10 @@ const Blog = () => {
     dispatch(addInputSearchValue(value));
   };
 
+  useBottomScrollListener(() => {
+    setPostCount(postCount + 5);
+  });
+
   if (loading) {
     return (
       <div className="container">
@@ -64,7 +70,7 @@ const Blog = () => {
       <div className="row">
         <div className="col-sm-10 col-sm-offset-1 col-xs-12">
           <MainBody>
-            <H1 propsClass='margin-bottom--0'>This is Blog Page</H1>
+            <H1 propsClass="margin-bottom--0">This is Blog Page</H1>
             <Carousel />
             <div className="row end-xs sticky">
               <div className="col-xs-12 padding-right--24px">
@@ -120,6 +126,7 @@ const Blog = () => {
               ) : (
                 filterPosts(posts, searchValue)
                   .sort((post, postNext) => postNext.updated - post.updated)
+                  .filter((_, i) => i < postCount)
                   .map(
                     (post) =>
                       sortPostsCategory(post.category, chosenCategory) && (
