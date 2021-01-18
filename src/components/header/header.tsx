@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { UserType } from '../../store/user/types';
 import { LogOutUser } from '../../store/user/action';
 import type { RootState } from '../../store';
-import { H5, P2 } from '../typography/typography';
+import { P2 } from '../typography/typography';
 import style from './header.module.scss';
 
 export const Header: FC = () => {
