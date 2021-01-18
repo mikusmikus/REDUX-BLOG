@@ -8,7 +8,6 @@
 }
 .slider {
 position: relative;
-  width: 400%;
   height: 100%;
   display: flex;
   transition: all 0.5s ease-out;
@@ -36,13 +35,14 @@ position: relative;
   z-index: 3;
   font-size: 50px;
   background: transparent;
+  color: $success;
   outline: none;
   border: none;
-  opacity: 0.2;
+  opacity: 0.6;
   cursor: pointer;
   transition: 0.1s all;
   &:hover {
-    opacity: 0.6;
+    opacity: 0.8;
     transform: scale(1.1);
   }
 }

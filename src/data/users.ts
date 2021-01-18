@@ -6,7 +6,7 @@ type UserType = {
   status?: string;
 };
 
-export const users: UserType[] = [
+export const USERS: UserType[] = [
   {
     id: '123csxc',
     username: 'mikus',

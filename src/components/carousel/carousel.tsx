@@ -1,13 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { IoMdArrowDroprightCircle, IoMdArrowDropleftCircle } from 'react-icons/io';
+import { CAROUSEL_IMAGES } from '../../data/images';
 import style from './carousel.module.scss';
 
-export const images: string[] = [
-  'https://images.hdqwalls.com/download/best-nature-image-1440x900.jpg',
-  'https://i.ytimg.com/vi/bCyEstrdg4E/maxresdefault.jpg',
-  'https://images.pexels.com/photos/1054289/pexels-photo-1054289.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-  'https://wow.zamimg.com/uploads/blog/images/20516-afterlives-ardenweald-4k-desktop-wallpapers.jpg',
-];
 
 const Carousel = () => {
   const [active, setActive] = useState(0);
@@ -23,7 +18,7 @@ const Carousel = () => {
   }, [active]);
 
   const handleNextImage = () => {
-    if (active === images.length - 1) {
+    if (active === CAROUSEL_IMAGES.length - 1) {
       setActive(0);
     } else {
       setActive(active + 1);
@@ -31,7 +26,7 @@ const Carousel = () => {
   };
   const handlePreviousImage = () => {
     if (!active) {
-      setActive(images.length - 1);
+      setActive(CAROUSEL_IMAGES.length - 1);
     } else {
       setActive(active - 1);
     }
@@ -57,9 +52,9 @@ const Carousel = () => {
           </button>
           <div
             className={`${style.slider} `}
-            style={{ transform: `translate(${active * -(100 / images.length)}%, 0)` }}
+            style={{ transform: `translate(${active * -(100 / CAROUSEL_IMAGES.length)}%, 0)`, width : `${CAROUSEL_IMAGES.length * 100}%` }}
           >
-            {images.map((image) => (
+            {CAROUSEL_IMAGES.map((image) => (
               <div
                 key={image}
                 style={{ backgroundImage: `url(${image})` }}

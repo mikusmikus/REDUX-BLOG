@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Header } from './components/header/header';
-import { users } from './data/users';
+import { USERS } from './data/users';
 import { addBlogPosts, getPostsData } from './store/blog/action';
 import Login from './pages/login';
 import Blog from './pages/blog';
@@ -20,7 +20,7 @@ const App: FC = () => {
     const localUsers = JSON.parse(localStorage.usersBlog || '[]');
     const localPosts = JSON.parse(localStorage.blogPosts || '[]');
 
-    if (!localUsers.length) localStorage.usersBlog = JSON.stringify(users);
+    if (!localUsers.length) localStorage.usersBlog = JSON.stringify(USERS);
 
     if (!localPosts.length) {
       dispatch(getPostsData());

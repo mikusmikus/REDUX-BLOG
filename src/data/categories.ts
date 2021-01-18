@@ -1,1 +1,1 @@
-export const categories = ['life', 'cars', 'nature', 'health', 'sport', 'music', 'house', 'summer'];
+export const CATEGORIES = ['life', 'cars', 'nature', 'health', 'sport', 'music', 'house', 'summer'];

@@ -12,9 +12,9 @@ import {
   PostType,
   Comment,
 } from './types';
-import { Authors } from '../../data/authors';
+import { AUTHORS } from '../../data/authors';
 import { multiplyText } from '../../helperFunctions/multiplyText';
-import { categories } from '../../data/categories';
+import { CATEGORIES } from '../../data/categories';
 import { changeLoading } from '../loading/action';
 
 export const addBlogPosts = (posts: PostType[]) => {
@@ -73,10 +73,10 @@ export const getPostsData = () => {
           postId: `${post.id}`,
           title: post.title,
           body: multiplyText(post.body, 6),
-          author: Authors[random(Authors.length - 1)],
+          author: AUTHORS[random(AUTHORS.length - 1)],
           image: `https://picsum.photos/id/${post.id + 5}/500/500`,
           updated: Date.now() - random(10000),
-          category: sampleSize(categories, 2),
+          category: sampleSize(CATEGORIES, 2),
           comments: [],
         })
       );

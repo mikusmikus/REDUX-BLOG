@@ -1,1 +1,1 @@
-export const Authors = ['Mikus', 'Gatis', 'Jānis', 'Mārtiņš', 'Vitālijs', 'Estere', 'Aina', 'Ieva'];
+export const AUTHORS = ['Mikus', 'Gatis', 'Jānis', 'Mārtiņš', 'Vitālijs', 'Estere', 'Aina', 'Ieva'];
