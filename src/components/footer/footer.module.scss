@@ -1,0 +1,28 @@
+@import '../../styles/index.scss';
+.footer {
+  position: relative;
+  min-height: 150px;
+  background-color: $primary;
+  padding: 10px 0;
+  width: 100%;
+  min-width: 650px;
+  z-index: 3;
+}
+.linkWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 50px;
+}
+.link {
+    display: flex;
+    justify-content: space-evenly;
+  color: black;
+  padding: 10px;
+  margin-bottom: 5px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgb(179, 178, 178);
+    opacity: 0.9;
+  }
+}

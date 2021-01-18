@@ -52,7 +52,7 @@ const NewPost = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-xs-10 col-xs-offset-1">
+        <div className="col-sm-10 col-sm-offset-1 col-xs-12">
           <MainBody>
             <H1>This Is New Post Page</H1>
             <PostEditor SavePostHandler={SavePostHandler} handleCancel={handleCancel} />

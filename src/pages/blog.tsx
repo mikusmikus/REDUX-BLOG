@@ -5,6 +5,7 @@ import { RootState } from '../store';
 import { addInputSearchValue } from '../store/search/action';
 import { deletePostAction } from '../store/blog/action';
 import PostCard from '../components/postCard/postCard';
+import Carousel from '../components/carousel/carousel';
 import { H1, H3 } from '../components/typography/typography';
 import { Button, Image, Input, MainBody } from '../commonComponents';
 import {
@@ -19,12 +20,15 @@ const Blog = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { posts, searchValue, loading, user } = useSelector((state: RootState) => ({
-    posts: state.blogPosts,
-    searchValue: state.seachPost,
-    loading: state.loading,
-    user: state.user,
-  }), shallowEqual);
+  const { posts, searchValue, loading, user } = useSelector(
+    (state: RootState) => ({
+      posts: state.blogPosts,
+      searchValue: state.seachPost,
+      loading: state.loading,
+      user: state.user,
+    }),
+    shallowEqual
+  );
 
   const handleReadMore = (id: string) => {
     history.push(`/blog/${id}`);
@@ -45,7 +49,7 @@ const Blog = () => {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-10 col-xs-offset-1">
+          <div className="col-sm-10 col-sm-offset-1 col-xs-12">
             <MainBody>
               <H1>loading...</H1>
             </MainBody>
@@ -58,11 +62,12 @@ const Blog = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-xs-10 col-xs-offset-1">
+        <div className="col-sm-10 col-sm-offset-1 col-xs-12">
           <MainBody>
-            <H1>This is Blog Page</H1>
-            <div className="row end-xs">
-              <div className="col-xs-12 margin-right--16">
+            <H1 propsClass='margin-bottom--0'>This is Blog Page</H1>
+            <Carousel />
+            <div className="row end-xs sticky">
+              <div className="col-xs-12 padding-right--24px">
                 {user.username && (
                   <Button
                     type="button"

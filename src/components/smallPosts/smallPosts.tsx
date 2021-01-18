@@ -38,7 +38,7 @@ const SmallPosts: FC<Props> = ({ post, id }) => {
         ) : (
           <>
             {threePosts.map(({ postId, image, title, author, category }) => (
-              <div className="col-xs-4" key={postId}>
+              <div className="col-sm-4 col-xs-6 padding-bottom--32" key={postId}>
                 <div className={style.smallPostCard} key={postId}>
                   <Image src={image} alt={title} />
                   <H5>{title.substring(0, 50)}</H5>

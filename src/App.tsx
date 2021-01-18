@@ -11,6 +11,7 @@ import PostPage from './pages/post';
 import NewPost from './pages/newPost';
 import EditPost from './pages/editPost';
 import NotFoundPage from './pages/notFound';
+import Footer from './components/footer/footer';
 
 const App: FC = () => {
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ const App: FC = () => {
         </Route>
         <Redirect to="/notfound" />
       </Switch>
+      <Footer />
     </Router>
   );
 };

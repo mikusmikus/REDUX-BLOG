@@ -1,0 +1,56 @@
+@import '../../styles/index.scss';
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 40vh;
+}
+.slider {
+position: relative;
+  width: 400%;
+  height: 100%;
+  display: flex;
+  transition: all 0.5s ease-out;
+}
+.text{
+    background-color: $primary;
+    background-color: rgba(252, 163, 17, 0.5);
+    max-width: 60%;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 20px;
+    font-size: 24px;
+    text-shadow: 3px 1px 5px white;
+}
+.slide {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.arrow {
+  position: absolute;
+  z-index: 3;
+  font-size: 50px;
+  background: transparent;
+  outline: none;
+  border: none;
+  opacity: 0.2;
+  cursor: pointer;
+  transition: 0.1s all;
+  &:hover {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+.arrowLeft {
+  left: 0;
+  top: 40%;
+}
+.arrowRight {
+  right: 0;
+  top: 40%;
+}

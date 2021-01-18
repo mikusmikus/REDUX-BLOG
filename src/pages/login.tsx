@@ -38,7 +38,7 @@ const LoginPage = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-xs-10 col-xs-offset-1">
+        <div className="col-sm-10 col-sm-offset-1 col-xs-12">
           <MainBody>
             <H1>This is LOGIN Page</H1>
             <div className="row center-xs">

@@ -50,7 +50,7 @@ const PostCard: FC<Props> = ({
         </div>
         <div className="col-xs-9">
           <P1 propsClass="margin-bottom--16">
-            {body.substring(0, 200)}
+            {body.substring(0, 130)}
             {'... '}
             <Button type="button" handleClick={handleReadMore}>
               Read more...

@@ -16,10 +16,10 @@ export const Header: FC = () => {
   const user = useSelector((state: RootState): UserType => state.user);
 
   return (
-    <header>
+    <header className='fixed'>
       <div className="container">
         <div className="row">
-          <div className="col-xs-10 col-xs-offset-1">
+          <div className="col-sm-10 col-sm-offset-1 col-xs-12">
             <div className={style.header}>
               <div className="row center-xs">
                 <div className="col-md-2 col-xs-4">

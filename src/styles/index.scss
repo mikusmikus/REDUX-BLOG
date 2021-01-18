@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import './helpers.scss';
 @import 'flexboxgrid';
 
-$primary: #e5e5e5;
-$success: #fca311;
-$warning: #cc6b6b;
-$white: #ffffff;
-
+html {
+  // mainit font size for rem
+}
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
@@ -21,44 +20,4 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-}
-em {
-  font-weight: 500;
-}
-.margin-left--16 {
-  margin-left: 16px;
-}
-.margin-right--16 {
-  margin-right: 16px;
-}
-.margin-bottom--8 {
-  margin-bottom: 8px;
-}
-.margin-bottom--16 {
-  margin-bottom: 16px;
-}
-.margin-bottom--24 {
-  margin-bottom: 24px;
-}
-.margin-bottom--32 {
-  margin-bottom: 32px;
-}
-.padding--0 {
-  padding: 0;
-  text-align: center;
-}
-
-.success {
-  background-color: $success;
-}
-
-.heading3 {
-  font-size: 32px;
-  font-weight: 500;
-  margin: 20px 0;
-  padding: 10px 0;
-  text-align: center;
-  text-transform: uppercase;
-  padding-left: 10px;
-  word-break: break-word;
 }
