@@ -9,6 +9,8 @@ import PostCard from '../components/postCard/postCard';
 import Carousel from '../components/carousel/carousel';
 import { H1, H3 } from '../components/typography/typography';
 import { Button, Image, Input, MainBody } from '../commonComponents';
+import { CAROUSEL_IMAGES } from '../data/carouselImages';
+import { CAROUSEL_TEXT } from '../data/carouselText';
 import {
   chooseCategoryColor,
   filterPosts,
@@ -71,7 +73,7 @@ const Blog = () => {
         <div className="col-sm-10 col-sm-offset-1 col-xs-12">
           <MainBody>
             <H1 propsClass="margin-bottom--0">This is Blog Page</H1>
-            <Carousel />
+            <Carousel images={CAROUSEL_IMAGES} imagesText={CAROUSEL_TEXT} slideTime={3} />
             <div className="row end-xs sticky">
               <div className="col-xs-12 padding-right--24px">
                 {user.username && (

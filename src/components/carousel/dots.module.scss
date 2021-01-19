@@ -1,0 +1,23 @@
+@import '../../styles/index.scss';
+
+.dotWrapper {
+  position: absolute;
+  display: flex;
+  left: 50%;
+  bottom: 35px;
+  transform: translateX(-50%);
+}
+
+.dot {
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background: transparent;
+  transition: 0.1s all;
+  color: $success;
+  text-shadow: 1px 1px 4px black;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
+}

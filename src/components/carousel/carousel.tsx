@@ -1,32 +1,41 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, FC } from 'react';
 import { IoMdArrowDroprightCircle, IoMdArrowDropleftCircle } from 'react-icons/io';
-import { CAROUSEL_IMAGES } from '../../data/images';
+import Dots from './dots';
+import Slide from './slide';
 import style from './carousel.module.scss';
 
-
-const Carousel = () => {
+type Props = {
+  images: string[];
+  imagesText?: string[];
+  slideTime?: number;
+};
+const Carousel: FC<Props> = ({ images, imagesText = [], slideTime = 3 }) => {
   const [active, setActive] = useState(0);
   const timeOut = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
+
     timeOut.current = setTimeout(() => {
       handleNextImage();
-    }, 4000);
+    }, slideTime * 1000);
+  
     return () => {
       clearTimeout(timeOut.current!);
     };
   }, [active]);
 
+
   const handleNextImage = () => {
-    if (active === CAROUSEL_IMAGES.length - 1) {
+    if (active === images.length - 1) {
       setActive(0);
     } else {
       setActive(active + 1);
     }
   };
+  
   const handlePreviousImage = () => {
     if (!active) {
-      setActive(CAROUSEL_IMAGES.length - 1);
+      setActive(images.length - 1);
     } else {
       setActive(active - 1);
     }
@@ -52,21 +61,20 @@ const Carousel = () => {
           </button>
           <div
             className={`${style.slider} `}
-            style={{ transform: `translate(${active * -(100 / CAROUSEL_IMAGES.length)}%, 0)`, width : `${CAROUSEL_IMAGES.length * 100}%` }}
+            style={{
+              transform: `translate(${active * -(100 / images.length)}%, 0)`,
+              width: `${images.length * 100}%`,
+            }}
           >
-            {CAROUSEL_IMAGES.map((image) => (
-              <div
-                key={image}
-                style={{ backgroundImage: `url(${image})` }}
-                className={`${style.slide}`}
-              >
-                <div className={style.text}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim tempore et quia at
-                  eum maxime, molestiae facere, recusandae doloribus eligendi, accusantium
-                </div>
-              </div>
+            {images.map((image, i) => (
+              <Slide key={image} image={image} imageText={imagesText[i]} />
             ))}
           </div>
+          <Dots
+            images={images}
+            activeIndex={active}
+            handleActiveDot={(index: number) => setActive(index)}
+          />
         </div>
       </div>
     </div>
