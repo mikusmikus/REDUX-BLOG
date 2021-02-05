@@ -18,6 +18,20 @@ const RegisterPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const validateEmail = (text: string) => {
+    const emailRegex = RegExp(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/);
+    return emailRegex.test(text);
+  };
+  const validateUsername = (text: string) => {
+    const usernameRegex = RegExp(/\b\w{5,}/);
+    return usernameRegex.test(text);
+  };
+
+  const validatePassword = (text: string) => {
+    const passwordRegex = RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/);
+    return passwordRegex.test(text);
+  };
+
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const localUsers: UserType[] = JSON.parse(localStorage.usersBlog || '[]');
@@ -25,10 +39,24 @@ const RegisterPage = () => {
       alert('username already exists, try other!');
       return;
     }
+
+    if (!validateUsername(username)) {
+      alert('at least 5 characters, no spaces');
+      return;
+    }
+    if (!validateEmail(email)) {
+      alert('wrong email. must be something like this: abc@gmail.com');
+      return;
+    }
+    if (!validatePassword(password)) {
+      alert('Password must be minimum eight characters, at least one letter and one number:');
+      return;
+    }
     if (password !== password2) {
       alert('passwords do not match');
       return;
     }
+
     const newUser: UserType = {
       id: uuidv4(),
       username,
@@ -44,7 +72,7 @@ const RegisterPage = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-sm-10 col-sm-offset-1 col-xs-12">
+        <div className="col-xs-12">
           <MainBody>
             <H1>This is Register Page</H1>
             <div className="row center-xs">
@@ -60,8 +88,8 @@ const RegisterPage = () => {
                         value={email}
                         onChangeHandler={(value) => setEmail(value)}
                         id="email"
-                        required
                         focus
+                        required
                       />
                       <Label htmlFor="username">Username</Label>
                       <Input
@@ -80,9 +108,7 @@ const RegisterPage = () => {
                         id="password"
                         required
                       />
-                      <Label htmlFor="password2">
-                        Password
-                      </Label>
+                      <Label htmlFor="password2">Password</Label>
                       <div className="margin-bottom--32">
                         <Input
                           placeholder="Enter password again"

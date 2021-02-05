@@ -8,16 +8,15 @@ html {
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.7528408779187149) 0%,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(229, 229, 229, 1) 32%,
-    rgba(229, 229, 229, 1) 70%,
-    rgba(255, 255, 255, 1) 100%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  // background: linear-gradient(90deg, #ffffffc0 0%, #e5e5e5 32%, #e5e5e5 70%, #ffffff 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+  // background: linear-gradient(
+  //   90deg,
+  //   #3d3d3d 0%,
+  //   #e5e5e5 32%,
+  //   #e5e5e5 70%,
+  //   #3d3d3d 100%
+  // );
 }

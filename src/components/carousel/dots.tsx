@@ -12,13 +12,22 @@ const Dots: FC<Props> = ({ images, activeIndex, handleActiveDot }) => {
   return (
     <div className={style.dotWrapper}>
       {images.map((_, index) => (
-        <button key={_} className={style.dot} type="button" onClick={() => handleActiveDot(index)}>
-          {index === activeIndex ? (
-            <VscDebugBreakpointData />
-          ) : (
-            <VscDebugBreakpointDataUnverified />
+        <>
+          {index > 0 && index < images.length - 1 && (
+            <button
+              key={_}
+              className={style.dot}
+              type="button"
+              onClick={() => handleActiveDot(index)}
+            >
+              {index === activeIndex ? (
+                <VscDebugBreakpointData />
+              ) : (
+                <VscDebugBreakpointDataUnverified />
+              )}
+            </button>
           )}
-        </button>
+        </>
       ))}
     </div>
   );

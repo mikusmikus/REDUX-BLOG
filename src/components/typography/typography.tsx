@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
+import { ThemeContext } from '../../context/themeContext';
 import style from './typography.module.scss';
 
 type Props = {

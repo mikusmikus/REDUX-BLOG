@@ -5,12 +5,13 @@
   width: 100%;
   overflow: hidden;
   height: 40vh;
+  min-height: 500px;
+  cursor: grab;
 }
 .slider {
   position: relative;
   height: 100%;
   display: flex;
-  transition: all 0.5s ease-out;
 }
 
 .arrow {

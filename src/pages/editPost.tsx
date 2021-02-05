@@ -58,7 +58,7 @@ const EditPost = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-sm-10 col-sm-offset-1 col-xs-12">
+        <div className="col-xs-12">
           <MainBody>
             <H1>This EDIT Post Page</H1>
             <PostEditor SavePostHandler={SavePostHandler} handleCancel={handleCancel} />

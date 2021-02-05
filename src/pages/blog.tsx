@@ -57,7 +57,7 @@ const Blog = () => {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-10 col-sm-offset-1 col-xs-12">
+          <div className="col-xs-12">
             <MainBody>
               <H1>loading...</H1>
             </MainBody>
@@ -70,7 +70,7 @@ const Blog = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-sm-10 col-sm-offset-1 col-xs-12">
+        <div className="col-xs-12">
           <MainBody>
             <H1 propsClass="margin-bottom--0">This is Blog Page</H1>
             <Carousel images={CAROUSEL_IMAGES} imagesText={CAROUSEL_TEXT} slideTime={3} />

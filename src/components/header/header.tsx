@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import capitalize from 'lodash/capitalize';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,8 +9,14 @@ import { LogOutUser } from '../../store/user/action';
 import type { RootState } from '../../store';
 import { P2 } from '../typography/typography';
 import style from './header.module.scss';
+import { ThemeContext } from '../../context/themeContext';
+import { Button } from '../../commonComponents';
 
 export const Header: FC = () => {
+  const { lightTheme } = useContext(ThemeContext);
+  // @ts-ignore
+  const { setLightTheme } = useContext(ThemeContext);
+
   const dispatch = useDispatch();
 
   const user = useSelector((state: RootState): UserType => state.user);
@@ -19,7 +25,7 @@ export const Header: FC = () => {
     <header className="fixed">
       <div className="container">
         <div className="row">
-          <div className="col-sm-10 col-sm-offset-1 col-xs-12">
+          <div className="col-xs-12">
             <div className={style.header}>
               <div className="row center-xs">
                 <div className=" col-xs-2">
@@ -82,6 +88,13 @@ export const Header: FC = () => {
                           <FontAwesomeIcon icon={user.status === 'user' ? faUser : faUserCog} />{' '}
                           {capitalize(user.username).substring(0, 15)}{' '}
                         </P2>
+                        <Button
+                          handleClick={() => setLightTheme(!lightTheme)}
+                          size="small"
+                          color={lightTheme ? 'warning' : 'success'}
+                        >
+                          {lightTheme ? 'Dark Theme' : 'Light Theme'}
+                        </Button>
                       </>
                     )}
                   </div>
