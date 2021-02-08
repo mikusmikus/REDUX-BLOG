@@ -18,8 +18,8 @@ import { ThemeContext } from './context/themeContext';
 const App: FC = () => {
   const [lightTheme, setLightTheme] = useState(true);
 
-  const providerValue = useMemo(() => ({ lightTheme, setLightTheme }), [lightTheme, setLightTheme]);
-
+  // const providerValue = useMemo(() => ({ lightTheme, setLightTheme }), [lightTheme, setLightTheme]);
+  const providerValue = { lightTheme, setLightTheme };
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -42,7 +42,6 @@ const App: FC = () => {
   };
 
   return (
-    // @ts-ignore
     <ThemeContext.Provider value={providerValue}>
       <div style={themeStyles}>
         <Router>

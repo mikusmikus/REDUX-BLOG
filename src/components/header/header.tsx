@@ -12,11 +12,10 @@ import style from './header.module.scss';
 import { ThemeContext } from '../../context/themeContext';
 import { Button } from '../../commonComponents';
 
-export const Header: FC = () => {
-  const { lightTheme } = useContext(ThemeContext);
-  // @ts-ignore
-  const { setLightTheme } = useContext(ThemeContext);
 
+export const Header: FC = () => {
+  
+  const { lightTheme, setLightTheme }  = useContext(ThemeContext);
   const dispatch = useDispatch();
 
   const user = useSelector((state: RootState): UserType => state.user);
